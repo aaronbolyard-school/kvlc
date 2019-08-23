@@ -48,7 +48,7 @@ def index():
 			else:
 				actionResult = action(leftHandSide, rightHandSide)
 
-				if not actionResult:
+				if not actionResult and actionResult != 0:
 					errors.append('Input bad. Did you try and divide by zero?')
 				else:
 					result = str(actionResult)

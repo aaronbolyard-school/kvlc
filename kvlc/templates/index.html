@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		{% block styles %}
+			<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+		{% endblock %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<ul class="nav navbar-nav mr-auto">
+				<a class="navbar-brand" href="{{ url_for('home.index') }}">
+					Kvlc
+				</a>
+			</ul>
+		</nav>
+		<main class="container">
+			{% block header %}<h1>Compute</h1>{% endblock %}
+			{% for error in errors %}
+				<div class="alert alert-danger" role="alert">
+					Error! {{ error }}
+				</div>
+			{% endfor %}
+			<div class="content">
+				{% block content %}
+					<form method='post'>
+						<h2>Input</h2>
+						<div class="form-inline">
+							<div class="form-group">
+								<label for="lhs">Left</label>
+								<input type="text". class="form-control" id="form_lhs" name="lhs">
+							</div>
+							<div class="form-group">
+								<label for="lhs">Right</label>
+								<input type="text" class="form-control" id="form_rhs" name="rhs">
+							</div>
+						</div>
+						<h2>Operations</h2>
+						<div class="form-row">
+							<button type="submit" class="btn btn-primary" name="action" value="add">Add</button>
+							<button type="submit" class="btn btn-primary" name="action" value="sub">Subtract</button>
+							<button type="submit" class="btn btn-primary" name="action" value="add">Multiply</button>
+							<button type="submit" class="btn btn-primary" name="action" value="div">Divide</button>
+						</div>
+					</form>
+					{% if result != "" %}
+						<h2>Result</h2>
+						<p class="lead"><b>{{ result }}<b></p>
+					{% endif %}
+				{% endblock %}
+			</div>
+		</main>
+		{% block scripts %}
+		<script src="{{ bootstrap_find_resource('jquery.js', cdn='jquery') }}"></script>
+		<script src="{{ bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap') }}"></script>
+		{% endblock %}
+	</body>
+</html>

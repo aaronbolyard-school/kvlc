@@ -1,7 +1,12 @@
 # Kvlc, a faux-Russian calculator
 Allows you to perform simple arithmetic.
 
-## Install
+## Assignment
+To run the assignment, simply type `python main.py` from any terminal.
+
+## Website
+
+### Install
 Run these commands (assuming Windows 10 & PowerShell):
 
 ```
@@ -11,7 +16,7 @@ venv\Scripts\activate.bat
 pip install flask flask_bootstrap
 ```
 
-## Running
+### Running
 Run these commands:
 
 ```
@@ -22,5 +27,5 @@ set FLASK_ENV=development
 python -m flask run # pytest to run unit tests
 ```
 
-## Unit Tests
-The project comes with unit tests for the model.
+### Unit Tests
+The project comes with unit tests for the model. Run them with `pytest`.
